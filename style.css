@@ -58,7 +58,6 @@ body {
     user-select: none;
     cursor: pointer;
     transition: var(--transit);
-    z-index: 30;
 }
 
 .menu:hover {
@@ -95,9 +94,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    translate: 0 -30px;
-    user-select: none;
-    z-index: 10;
+    translate: 0 -20px;
 }
 
 .nav-top .logo img {
