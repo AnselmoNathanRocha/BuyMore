@@ -55,7 +55,6 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    user-select: none;
     cursor: pointer;
     transition: var(--transit);
     z-index: 30;
