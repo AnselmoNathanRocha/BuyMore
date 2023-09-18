@@ -93,9 +93,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    translate: 0 -20px;
+    translate: 0 -30px;
     user-select: nome;
-    cursor: pointer;
 }
 
 .nav-top .logo img {
@@ -157,7 +156,7 @@ body {
     border-radius: 25px;
     padding: 0 10px;
     background-color: transparent;
-    color: var(--bg-color-light);
+    color: transparent;
     outline: none;
     border: 2px solid var(--color-text-dark);
     z-index: 10;
@@ -168,6 +167,7 @@ body {
     width: 250px;
     height: 30px;
     translate: -20px;
+    color: var(--bg-color-light);
 }
 
 .search input:focus ~ img {
