@@ -50,7 +50,7 @@ body {
     width: 34px;
     height: 34px;
     margin: 20px 0 0 20px;
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -58,6 +58,7 @@ body {
     user-select: none;
     cursor: pointer;
     transition: var(--transit);
+    z-index: 30;
 }
 
 .menu:hover {
@@ -95,6 +96,8 @@ body {
     justify-content: center;
     align-items: center;
     translate: 0 -20px;
+    position: absolute;
+    z-index: 11;
 }
 
 .nav-top .logo img {
