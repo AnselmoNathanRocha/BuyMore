@@ -93,7 +93,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    translate: 0, -20px;
+    translate: 0 -20px;
     user-select: nome;
     cursor: pointer;
 }
