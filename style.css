@@ -90,11 +90,10 @@ body {
 }
 
 .nav-top .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    translate: 0 -20px;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 11;
 }
 
