@@ -24,7 +24,7 @@ btnSearch.addEventListener('click', function() {
         divRes.classList.add('visible');
         res.innerText = search.value;
     }
-    setTimeout(back, 4000);
+    setTimeout(back, 6000);
 });
 
 btnProfile.addEventListener('mouseover', function() {
