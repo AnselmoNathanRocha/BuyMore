@@ -10,6 +10,7 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <div id="fade"></div>
     <!-- Botão de Navegação -->
     <nav class="nav-top">
         <label class="menu">
@@ -32,7 +33,7 @@
 
         <label class="search">
             <input type="text" id="search-input">
-            <img src="img/icon-search.png">
+            <img src="img/icon-search.png" id="btn-search">
         </label>
     </nav>
 
@@ -121,5 +122,8 @@
         </div>
     </nav>
     
+    <div class="loading noVisible">
+        <span></span>
+    </div>
 </body>
 </html>
