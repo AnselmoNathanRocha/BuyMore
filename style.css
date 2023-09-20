@@ -337,10 +337,8 @@ body {
 }
 
 .loading {
+    width: 100%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     z-index: 30;
 }
 
@@ -349,8 +347,11 @@ body {
     height: 50px;
     border-radius: 50%;
     border: 5px solid transparent;
-    border-top: 5px solid blue;
+    border-top: 5px solid var(--bg-color-nav);
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     animation: anim 1s linear infinite;
     z-index: 30;
 }
