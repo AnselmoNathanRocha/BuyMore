@@ -6,6 +6,8 @@ let search = document.querySelector('#search-input');
 let navLeft = document.querySelector('.nav-left');
 let modalProfile = document.querySelector('.modal-profile');
 let load = document.querySelector('.loading');
+let res = document.querySelector('.res');
+let divRes = document.querySelector('.resultado');
 
 btnMenu.addEventListener('click', function() {
     navLeft.classList.toggle('hide-main');
@@ -19,6 +21,8 @@ btnSearch.addEventListener('click', function() {
     function back() {
         fade.classList.toggle('fade-search');
         load.classList.toggle('visible');
+        divRes.classList.add('visible');
+        res.innerText = search.value;
     }
     setTimeout(back, 4000);
 });

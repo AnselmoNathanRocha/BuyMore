@@ -359,3 +359,18 @@ body {
         transform: rotate(360deg);
     }
 }
+
+.resultado {
+    position: absolute;
+    top: 160px;
+    left: 10px;
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    color: var(--bg-color-button);
+    display: flex;
+}
+
+.res {
+    margin-left: 5px;
+}
