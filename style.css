@@ -295,6 +295,7 @@ body {
     z-index: 9;
     translate: -190px;
     transition: var(--transit);
+    overflow: hidden;
 }
 
 .hide-main {
