@@ -337,6 +337,7 @@ body {
 }
 
 .loading {
+    width: 100%;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -350,9 +351,9 @@ body {
     border-radius: 50%;
     border: 5px solid transparent;
     border-top: 5px solid var(--bg-color-nav);
-    position: absolute;
+    position: fixed;
     animation: anim 1s linear infinite;
-    z-index: 30;
+    z-index: 31;
 }
 
 @keyframes anim {
