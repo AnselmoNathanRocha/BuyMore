@@ -45,6 +45,7 @@ modalProfile.addEventListener('mouseout', function() {
 search.addEventListener('focus', function() {
     search.setAttribute('placeholder', 'Pesquise por produtos');
 });
+
 search.addEventListener('blur', function() {
     search.removeAttribute('placeholder', 'Pesquise por produtos');
 });
