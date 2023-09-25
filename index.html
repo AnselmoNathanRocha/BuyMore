@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,6 +8,7 @@
     <title>Buy More</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -21,8 +23,10 @@
         </label>
 
         <span class="logo">
-            <img src="img/icon.png">
-            <p>Buy More</p>
+            <a href="index.html">
+                <img src="img/icon.png">
+                <p>Buy More</p>
+            </a>
         </span>
          
         <label class="box-profile">
@@ -32,7 +36,7 @@
         </label>
 
         <label class="search">
-            <input type="text" id="search-input">
+            <input type="search" id="pesquisa">
             <img src="img/icon-search.png" id="btn-search">
         </label>
     </nav>
@@ -65,7 +69,7 @@
                 </i>
                 <p>Carrinho</p>
             </a>
-            <a href="#">
+            <a href="favorite.html">
                 <i>
                     <img src="img/icon-favorites.png">
                 </i>
@@ -129,6 +133,178 @@
     <div class="resultado noVisible">
         <p>Você buscou por </p>
         <span class="res"></span>
+    </div>
+    <span class="border"></span>
+
+    <div class="cards">
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis botinha cano alto jordan retro 1 preto branco.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Jordan</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis botinha cano alto jordan retro 1 preto branco</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis New Balance 373, Masculino.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>New Balance</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis New Balance 373, Masculino</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis Fila Racer For All, Masculino.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Fila</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis Fila Racer For All, Masculino</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis Olympikus Feminino Casual Flora-158.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Olympikus</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis Olympikus Feminino Casual Flora/158</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/JMSUN tenis masculino Sapatos esportivos casuais de malha tecida com mosca, tênis de corrida que aumentam a altura interna.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>JMSUN</h3>
+            <button>Saiba Mais</button>
+            <p>JMSUN tenis masculino Sapatos esportivos casuais</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Cat Coturno Bota Tenis Adventure Couro Original + kit.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Cat</h3>
+            <button>Saiba Mais</button>
+            <p>Cat Coturno Bota Tenis Adventure Couro Original</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis Casual VL 2500, Rainha, Masculino.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Rainha</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis Casual VL 2500, Rainha, Masculino</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/FERRARI NEO CAT.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>FERRARI</h3>
+            <button>Saiba Mais</button>
+            <p>FERRARI NEO CAT</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis Vizzano Feminino Casual Pelica 1389.101.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Vizzano</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis Vizzano Feminino Casual Pelica 1389.101</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis Under Armour UA CHARGED SLIGHT feminino.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Under Armour</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis Under Armour UA CHARGED SLIGHT feminino</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis Adidas Feminino Grand Court 2.0.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Adidas</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis Adidas Feminino Grand Court 2.0</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tênis Canvas Hi, Street, adulto-unissex.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>Street</h3>
+            <button>Saiba Mais</button>
+            <p>Tênis Canvas Hi, Street, adulto-unissex</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/Tenis Infantil De Elastico Calce Facil Masculino Leve LIGHT.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>CALÇADOS LIGHT</h3>
+            <button>Saiba Mais</button>
+            <p>Tenis Infantil De Elastico Calce Facil Masculino Leve LIGHT</p>
+        </div>
+        <div class="card">
+            <div class="img">
+                <img src="img/shoes/TENIS ORIGINALS REDLEY IR 10 PRETO.jpg">
+            </div>
+            <label class="favorite">
+                <input type="checkbox" class="favorite-on">
+                <img src="img/favorite-off.png" class="imgFavorite">
+            </label>
+            <h3>REDLEY</h3>
+            <button>Saiba Mais</button>
+            <p>TENIS ORIGINALS REDLEY IR 10 PRETO</p>
+        </div>
     </div>
 </body>
 </html>

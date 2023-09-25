@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>JQuery - Adicionar a Favoritos</title>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+
+import Cama from "cama.png";
+import React from "react";
+import styles from "./styles.module.scss";
+
+export default function Recommend() {
+  const [favorite, setFavorite] = useState(false);
+
+  // Confere pra ver se o valor do estado está como "true"
+  // Se estiver ele retorna a classe com o coração preenchido
+  const checkIfIsFavorite = () => (favorite ? "fas fa-heart" : "far fa-heart");
+
+  // Altera o "favorite" para o contrário ao ser executada
+  const handleToggleFavorite = () => setFavorite((previous) => !previous);
+
+  return (
+    <div className={styles.cardContext}>
+      <div>
+        <p onClick={handleToggleFavorite}>
+          <i className={checkIfIsFavorite} id="item"></i>
+        </p>
+        <img src={Cama} alt="Cama" />
+      </div>
+    </div>
+  );
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>
