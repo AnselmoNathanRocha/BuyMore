@@ -35,6 +35,40 @@
         position: absolute;
       }
 
+      .close a {
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        box-shadow: -1px 1px 10px 1px #00000036;
+        background-color: #ffffff31;
+        border-radius: 20px;
+        display: grid;
+        place-items: center;
+        transition: var(--transit3);
+      }
+
+      .close a:hover {
+        scale: 1.1;
+      }
+
+      .close a span {
+        position: fixed;
+        width: 30px;
+        height: 4px;
+        border-radius: 2px;
+        background-color: var(--bg-color-screen);
+      }
+
+      .close a span:first-child {
+        rotate: 45deg;
+      }
+
+      .close a span:last-child {
+        rotate: -45deg;
+      }
+
       .screen-left,
       .screen-right {
         display: flex;
@@ -337,6 +371,12 @@
     </style>
   </head>
   <body>
+    <div class="close">
+        <a href="index.html">
+            <span></span>
+            <span></span>
+        </a>
+    </div>
     <div class="box">
       <div class="screen-left">
         <form class="loginForm">
