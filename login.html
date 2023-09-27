@@ -1,300 +1,474 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buy More - Conta</title>
     <style>
-        :root {
-            --transit3: .3s ease-in-out;
-            --transit4: .4s ease-in-out;
-            --bg-color-screen: #27278e;
-            --text-color: #1b1b77;
-        }
+      :root {
+        --transit3: 0.3s ease-in-out;
+        --transit4: 0.4s ease-in-out;
+        --bg-color-screen: #27278e;
+        --text-color: #1b1b77;
+      }
 
-        body {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            width: 100%;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #00000029;
-        }
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #00000029;
+        color: var(--text-color);
+      }
 
-        .box {
-            width: 60%;
-            min-width: 300px;
-            height: 500px;
-            box-shadow: -1px 1px 20px 1px #0000007b;
-            border-radius: 10px;
-            position: absolute;
-        }
+      .box {
+        width: 60%;
+        min-width: 300px;
+        height: 500px;
+        box-shadow: -1px 1px 20px 1px #0000007b;
+        border-radius: 10px;
+        position: absolute;
+      }
 
+      .screen-left,
+      .screen-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #ffffff70;
+      }
 
+      .screen-left {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
 
-        @media screen and (min-width: 970px) {
-            .screen-left, .screen-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            background-color: #ffffff70;
+      .screen-right {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+
+      .loginForm,
+      .createForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .createForm {
+        position: absolute;
+        right: 8%;
+      }
+
+      .loginForm h1,
+      .createForm h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        text-align: center;
+        margin: 50px;
+        color: var(--bg-color-screen);
+      }
+
+      .inputs input {
+        box-sizing: border-box;
+        font-size: 18px;
+        padding: 10px 10px;
+        margin: 5px;
+        width: 200px;
+        height: 25px;
+        background-color: transparent;
+        color: var(--text-color);
+        border-radius: 5px;
+        border: none;
+        border-bottom: 2px solid var(--text-color);
+        transition: var(--transit3);
+        outline: none;
+      }
+
+      .loginForm label,
+      .createForm label {
+        color: var(--text-color);
+        position: absolute;
+        left: 30%;
+        transition: var(--transit3);
+      }
+
+      .inputs input:focus ~ label,
+      .inputs input:valid ~ label {
+        transform: translate(-10px, -30px);
+        scale: 0.8;
+      }
+
+      .outher {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .outher label,
+      .outher span {
+        font-size: 14px;
+        width: 80px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .outher input {
+        position: absolute;
+        left: -20px;
+      }
+
+      .outher a {
+        position: absolute;
+        right: 50px;
+      }
+
+      #btnFormLogin,
+      #btnFormCreate {
+        background-color: var(--bg-color-screen);
+        color: white;
+      }
+
+      .screen {
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transit3);
+      }
+
+      .loginScreen,
+      .createScreen {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transit4);
+        background-color: var(--bg-color-screen);
+        color: white;
+        border-radius: 10px;
+      }
+
+      .loginScreen {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .createScreen {
+        visibility: hidden;
+      }
+
+      .loginScreen p {
+        text-align: center;
+        padding: 20px;
+      }
+
+      button {
+        font-size: 1.1rem;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-weight: bolder;
+        width: 180px;
+        height: 50px;
+        border: none;
+        border-radius: 5px;
+        margin-top: 30px;
+        transition: var(--transit3);
+        opacity: 0.7;
+        cursor: pointer;
+      }
+
+      button:hover {
+        scale: 1.03;
+        opacity: 1;
+      }
+
+      @media screen and (max-width: 970px) {
+        .screen-left,
+        .screen-right {
+          width: 100%;
+          height: 70%;
+          border-radius: 10px;
+          text-align: center;
+          position: absolute;
         }
 
         .screen-left {
-            width: 50%;
-            height: 100%;
-            position: absolute;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
+          border-radius: 10px;
         }
 
-        .screen-right {
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
+        .screen {
+          width: 100%;
+          height: 30%;
+          border-radius: 10px;
+          box-sizing: border-box;
+          background-color: var(--text-color);
+          position: absolute;
+          bottom: 0;
+          z-index: 30;
+          color: white;
         }
 
-        .loginForm, .createForm {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .loginScreen button {
+          position: absolute;
+          bottom: 5px;
+        }
+
+        .screen h1 {
+          font-size: 1.2rem;
+          text-align: center;
+          margin: 0;
+        }
+
+        .screen p {
+          text-align: center;
+          padding: 0 20px;
+          font-size: 12px;
+        }
+
+        .screen button {
+          background-color: #fff;
+          color: var(--text-color);
+          position: absolute;
+          bottom: 0;
+          scale: 0.7;
+        }
+
+        .loginForm,
+        .createForm {
+          transition: var(--transit3);
+        }
+
+        .loginForm {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          z-index: 30;
         }
 
         .createForm {
-            position: absolute;
-            right: 50px;
+          width: 100%;
+          height: 70%;
+          box-sizing: border-box;
+          position: absolute;
+          transform: translate(8%);
+          visibility: hidden;
         }
 
-        .loginForm h1,  .createForm h1 {
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: bolder;
-            text-align: center;
-            margin: 50px;
-            color: var(--bg-color-screen);
+        .createForm h1 {
+          font-size: 1.4rem;
+          margin: 100px 0 30px 0;
+        }
+
+        .createForm .inputs {
+          width: 100%;
+          height: 100%;
+        }
+
+        .createForm button {
+          scale: 0.7;
         }
 
         .inputs input {
-            box-sizing: border-box;
-            font-size: 18px;
-            padding: 0 10px;
-            width: 200px;
-            height: 25px;
-            background-color: transparent;
-            color: var(--text-color);
-            border-radius: 5px;
-            border: none;
-            border-bottom: 2px solid var(--text-color);
-            outline: none;
+          width: 100%;
+          max-width: 220px;
         }
 
-        .loginForm label,  .createForm label {
-            color: var(--text-color);
-            position: absolute;
-            left: 25%;
-            transition: var(--transit3);
-        }
-
-        .inputs input:focus ~ label,
-        .inputs input:valid ~ label {
-            transform: translate(-10px, -30px);
-            scale: .8;
+        .inputs label {
+          position: absolute;
+          left: 30%;
         }
 
         .outher {
-            width: 100%;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+          width: 100%;
+          height: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
 
-        .outher label, .outher span {
-            font-size: 14px;
-            width: 80px;
-            height: 20px;
-            cursor: pointer;
+        .outher label,
+        .outher span {
+          font-size: 14px;
+          width: 80px;
+          height: 20px;
+          cursor: pointer;
+        }
+
+        .outher label {
+          position: absolute;
+          left: 20%;
         }
 
         .outher input {
-            position: absolute;
-            left: -20px;
+          position: absolute;
+          left: -20px;
         }
 
         .outher a {
-            position: absolute;
-            right: 50px;
+          position: absolute;
+          right: 10%;
         }
 
-        #btnFormLogin, #btnFormCreate {
-            background-color: var(--bg-color-screen);
-            color: white;
+        #btnFormLogin {
+          position: absolute;
+          bottom: 10px;
         }
-
-
-        .screen {
-            width: 50%;
-            height: 100%;
-            position: absolute;
-            right: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: var(--transit3);
-        }
-
-        .loginScreen, .createScreen {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: var(--transit4);
-            background-color: var(--bg-color-screen);
-            color: white;
-            border-radius: 10px;
-        }
-
-        .createScreen {
-            display: none;
-            opacity: 0;
-        }
-
-        .loginScreen p {
-            text-align: center;
-            padding: 20px;
-        }
-
-        button {
-            font-size: 1.1rem;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            font-weight: bolder;
-            width: 180px;
-            height: 50px;
-            border: none;
-            border-radius: 5px;
-            margin-top: 30px;
-            transition: var(--transit3);
-            opacity: .7;
-            cursor: pointer;
-        }
-
-        button:hover {
-            scale: 1.03;
-            opacity: 1;
-        }
-
-        }
-
-        @media screen and (max-width: 970px) {
-
-        }
-
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="box">
-        <div class="screen-left">
-           <form class="loginForm">
-                <h1>Faça Login</h1>
+      <div class="screen-left">
+        <form class="loginForm">
+          <h1>Faça Login</h1>
 
-                <div class="inputs">
-                    <span>
-                        <input type="email" id="emailLogin" minlength="1" required>
-                        <label for="emailLogin">Nome de Usuário</label>
-                    </span>
-                    <br><br><br>
-                    <span>
-                        <input type="password" id="senhaLogin" minlength="1"  required>
-                        <label for="senhaLogin">Senha</label>
-                    </span>
-                </div>
-                <div class="outher">
-                    <label>
-                        <input type="checkbox">
-                        Lembre-me
-                    </label>
-                    <span>
-                        <a href="#">Esqueceu a senha?</a>
-                    </span>
-                </div>
-                <button id="btnFormLogin">Entre</button>
-           </form>
-        </div>
-
-        <div class="screen-right">
-            <form class="createForm">
-                <h1>Cadastre-se</h1>
-
-                <div class="inputs">
-                    <span>
-                        <input type="text" id="nome" minlength="1" required>
-                        <label for="nome">Nome</label>
-                    </span>
-                    <br><br><br>
-                    <span>
-                        <input type="text" id="sobrenome" minlength="1" required>
-                        <label for="sobrenome">Sobrenome</label>
-                    </span>
-                    <br><br><br>
-                    <span>
-                        <input type="email" id="emailCreate" required>
-                        <label for="emailCreate">Email</label>
-                    </span>
-                    <br><br><br>
-                    <span>
-                        <input type="password" id="senha" required>
-                        <label for="senha">Senha</label>
-                    </span>
-                    <div>
-                        <button id="btnFormCreate">Cadastre-se</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-
-        <div class="screen">
-            <div class="loginScreen">
-                <h1>Faça seu Cadastro</h1>
-                <p>Ainda não tem uma conta? Então faça seu cadastro.</p>
-                <button id="btnCreate">Cadastrar</button>
+          <div class="inputBox">
+            <div class="inputs">
+              <span>
+                <input type="email" id="emailLogin" minlength="1" required />
+                <label for="emailLogin">Nome de Usuário</label>
+              </span>
+              <br /><br />
+              <span>
+                <input type="password" id="senhaLogin" minlength="1" required />
+                <label for="senhaLogin">Senha</label>
+              </span>
             </div>
-
-            <div class="createScreen">
-                <h1>Faça Login</h1>
-                <p>Já tem uma conta? Então faça login.</p>
-                <button id="btnLogin">Entrar</button>
+            <div class="outher">
+              <label>
+                <input type="checkbox" />
+                Lembre-me
+              </label>
+              <span>
+                <a href="#">Esqueceu a senha?</a>
+              </span>
             </div>
+          </div>
+          <button id="btnFormLogin">Entre</button>
+        </form>
+      </div>
+
+      <div class="screen-right">
+        <form class="createForm">
+          <h1>Cadastre-se</h1>
+
+          <div class="inputs">
+            <span>
+              <input type="text" id="nome" minlength="1" required />
+              <label for="nome">Nome</label>
+            </span>
+            <br /><br />
+            <span>
+              <input type="text" id="sobrenome" minlength="1" required />
+              <label for="sobrenome">Sobrenome</label>
+            </span>
+            <br /><br />
+            <span>
+              <input type="email" id="emailCreate" required />
+              <label for="emailCreate">Email</label>
+            </span>
+            <br /><br />
+            <span>
+              <input type="password" id="senha" required />
+              <label for="senha">Senha</label>
+            </span>
+            <div>
+              <button id="btnFormCreate">Cadastre-se</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="screen">
+        <div class="loginScreen">
+          <h1>Faça seu Cadastro</h1>
+          <p>Ainda não tem uma conta? Então faça seu cadastro.</p>
+          <button id="btnCreate">Cadastrar</button>
         </div>
+
+        <div class="createScreen">
+          <h1>Faça Login</h1>
+          <p>Já tem uma conta? Então faça login.</p>
+          <button id="btnLogin">Entrar</button>
+        </div>
+      </div>
     </div>
 
     <script>
-        let btnLogin = document.querySelector('#btnLogin');
-        let btnCreate = document.querySelector('#btnCreate');
-        let loginScreen = document.querySelector('.loginScreen');
-        let createScreen = document.querySelector('.createScreen');
-        let screen = document.querySelector('.screen');
+      let viewportWidth = window.innerWidth;
+      let btnLogin = document.querySelector("#btnLogin");
+      let btnCreate = document.querySelector("#btnCreate");
+      let loginScreen = document.querySelector(".loginScreen");
+      let loginForm = document.querySelector(".loginForm");
+      let createForm = document.querySelector(".createForm");
+      let createScreen = document.querySelector(".createScreen");
+      let screen = document.querySelector(".screen");
 
-        btnCreate.addEventListener('click', function(){
+      btnCreate.addEventListener("click", function () {
+        if (viewportWidth < 970) {
             createScreen.style.cssText = 
-            'display: flex;' +
             'opacity: 1;' +
-            'z-index: 10;';
-            screen.style.cssText = 'translate: -100%;';
-        });
-
-        btnLogin.addEventListener('click', function(){
-            screen.style.cssText = 'translate: 0;';
+            'visibility: visible;';
+          loginScreen.style.cssText =
+            "visibility: hidden;" + "opacity: 1;" + "z-index: 10;";
+          loginForm.style.cssText = "opacity: 0;" + "visibility: hidden;";
+          createForm.style.cssText = "visibility: visible;" + "opacity: 1;";
+        } else {
+            loginForm.style.cssText = 
+            'opacity: 0;' +
+            'visibility: hidden;';
+          createForm.style.cssText =
+            "visibility: visible;" + "opacity: 1;" + "z-index: 10;";
+            loginScreen.style.cssText = 
+            'visibility: hidden;';
             createScreen.style.cssText = 
-            'display: none;' +
-            'opacity: 0;';
-        });
+            'visibility: visible;';
+          screen.style.cssText = "translate: -100%;";
+        }
+      });
 
+      btnLogin.addEventListener("click", function () {
+        if (viewportWidth < 970) {
+            loginScreen.style.cssText = 
+            'visibility: visible;' +
+            'opacity: 1;';
+          createScreen.style.cssText = "display: none;" + "opacity: 0;";
+          loginForm.style.cssText = "visibility: visible;" + "opacity: 1;";
+          createForm.style.cssText = "opacity: 0;" + "visibility: hidden;";
+        } else {
+            loginForm.style.cssText = 
+            'visibility: visible;' +
+            'opacity: 1;';
+          createForm.style.cssText =
+            "visibility: hidden;" + "opacity: 0;" + "z-index: 10;";
+            createScreen.style.cssText = 
+            'opacity: 0;' +
+            'visibility: hidden;';
+            loginScreen.style.cssText = 
+            'visibility: visible;';
+          screen.style.cssText = "translate: 0;";
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
