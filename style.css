@@ -217,7 +217,7 @@ body {
 
 
 .modal-profile { 
-   width: 150px; 
+   width: 160px; 
    height: 180px; 
    border-radius: 5px; 
    box-shadow: -1px 1px 2px #00000083; 
@@ -266,6 +266,7 @@ body {
    width: 80px; 
    height: 30px; 
    border: none; 
+   border-radius: 0 0 0 5px;
    background-color: var(--bg-color-button); 
    color: var(--bg-color-light); 
    transition: var(--transit); 
@@ -274,12 +275,7 @@ body {
 
 .modal-profile button:hover { 
    background-color: var(--bg-color-hover); 
-} 
-
-.modal-profile button:nth-child(2) { 
-   border-end-start-radius: 5px; 
-   border-right: 1px solid #a3a3a3; 
-} 
+}
 
 .modal-profile button:last-child { 
    border-end-end-radius: 5px; 
@@ -429,7 +425,6 @@ body {
 
 .card .img {
    height: 100px;
-   height: 100px;
    margin-top: 30px;
 }
 
@@ -439,8 +434,8 @@ body {
 }
 
 .card .favorite {
-   width: 30px;
-   transform: translate(250%, -360%);
+   width: 25px;
+   transform: translate(320%, -450%);
 }
 
 .card .favorite input {
